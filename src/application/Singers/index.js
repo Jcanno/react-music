@@ -1,20 +1,34 @@
-import React from 'react';
-// import { renderRoutes } from "react-router-config";
-// import {
-//   Top,
-//   Tab,
-//   TabItem,
-// } from './style';
-// import { NavLink } from 'react-router-dom';
+import React, {useState} from 'react';
+import Horizen from '../../baseUI/horizen-item';
+import { categoryTypes, alphaTypes } from '../../api/config';
+import { NavContainer } from "./style";
 
-function Singers (props){
-  // const { route } = props;
+function Singers () {
+  let [category, setCategory] = useState ('');
+  let [alpha, setAlpha] = useState ('');
+
+  let handleUpdateAlpha = (val) => {
+    setAlpha (val);
+  }
+
+  let handleUpdateCatetory = (val) => {
+    setCategory (val);
+  }
 
   return (
-    <div>
-		singers
-    </div>
-  );
+    <NavContainer>
+      <Horizen 
+        list={categoryTypes} 
+        title={"分类 (默认热门):"} 
+        handleClick={handleUpdateCatetory} 
+        oldVal={category}></Horizen>
+      <Horizen 
+        list={alphaTypes} 
+        title={"首字母:"} 
+        handleClick={val => handleUpdateAlpha (val)} 
+        oldVal={alpha}></Horizen>
+    </NavContainer>
+  )
 }
 
 export default React.memo (Singers);
