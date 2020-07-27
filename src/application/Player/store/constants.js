@@ -1,4 +1,3 @@
-
 export const SET_CURRENT_SONG = 'player/SET_CURRENT_SONG';
 export const SET_FULL_SCREEN = 'player/SET_FULL_SCREEN';
 export const SET_PLAYING_STATE = 'player/SET_PLAYING_STATE';
